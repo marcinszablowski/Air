@@ -145,8 +145,15 @@ BQ
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="PM10" destination="qQe-eB-LaA" id="OVZ-dS-bCC"/>
+                        <outlet property="PM25" destination="yfR-LO-p90" id="xEz-I7-6Wn"/>
+                        <outlet property="airQualityLabel" destination="8ah-sO-0Mx" id="yqJ-ZE-rgS"/>
                         <outlet property="carbonMonoxide" destination="ocH-Gr-FLB" id="oKZ-Au-7MC"/>
+                        <outlet property="cityLabel" destination="iTE-Rv-3OP" id="li1-g0-mWk"/>
                         <outlet property="mainDescription" destination="8ah-sO-0Mx" id="kpi-uR-JXd"/>
+                        <outlet property="nitrogenDioxide" destination="axa-mY-ufj" id="7Sp-IM-Z5r"/>
+                        <outlet property="ozone" destination="t9g-VZ-B9b" id="qcm-bN-o2M"/>
+                        <outlet property="sulfurDioxide" destination="Tpg-xm-Ryj" id="oIw-3V-8bq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
