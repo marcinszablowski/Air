@@ -8,28 +8,38 @@
 
 import UIKit
 
-class AirQualityDataModel: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+class AirQualityDataModel {
+    
+    //Labels for displaing city and pollutants
+    var city : String = ""
+    var AQI : Int = 0
+    var pm25 : Int = 0
+    var pm10 : Int = 0
+    var no2 : Double = 0
+    var co : Double = 0
+    var o3 : Double = 0
+    var so2 : Double = 0
+    var airQualityInterpretationName : String = ""
+    
+    //Conditions for displaing air quality interpretation
+    func airQualityInterpretation(quality: Int) -> String {
+        switch (quality) {
+        case 0...50 :
+            return "Excellent"
+        case 51...100:
+            return "Good"
+        case 101...150 :
+            return "Lightly Polluted"
+        case 151...200 :
+            return "Moderately Polluted"
+        case 201...300 :
+            return "Heavily Polluted"
+        case 301...999 :
+            return "Severely Polluted"
+            
+        default:
+            return "Outside of range"
+        }
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
