@@ -9,14 +9,13 @@
 /* Begin PBXBuildFile section */
 		D343ECB620129CFA00EF3619 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D343ECB520129CFA00EF3619 /* AppDelegate.swift */; };
 		D343ECB820129CFA00EF3619 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D343ECB720129CFA00EF3619 /* ViewController.swift */; };
+		D37E0BAB207EAE4F0005B897 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D37E0BAA207EAE4F0005B897 /* Alamofire.framework */; };
 		D38DA29E201E175D00599228 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D343ECB920129CFA00EF3619 /* Main.storyboard */; };
 		D38DA29F201E175D00599228 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D343ECBC20129CFA00EF3619 /* Assets.xcassets */; };
 		D38DA2A0201E175D00599228 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D343ECBE20129CFA00EF3619 /* LaunchScreen.storyboard */; };
 		D3B077A5201A70B200076879 /* AirQualityDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3B077A4201A70B200076879 /* AirQualityDataModel.swift */; };
 		D3ED3C68201D4739006E3B59 /* Pods_Air.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB99A08F01B86A5F60EE930 /* Pods_Air.framework */; };
 		D3ED3C69201D4739006E3B59 /* Pods_Air.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7AB99A08F01B86A5F60EE930 /* Pods_Air.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		D3ED3C75201D4904006E3B59 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED3C6C201D4747006E3B59 /* Alamofire.framework */; settings = {ATTRIBUTES = (Required, ); }; };
-		D3ED3C76201D4904006E3B59 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D3ED3C6C201D4747006E3B59 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -27,7 +26,6 @@
 			dstSubfolderSpec = 10;
 			files = (
 				D3ED3C69201D4739006E3B59 /* Pods_Air.framework in Embed Frameworks */,
-				D3ED3C76201D4904006E3B59 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,8 +43,8 @@
 		D343ECBC20129CFA00EF3619 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D343ECBF20129CFA00EF3619 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D343ECC120129CFA00EF3619 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D37E0BAA207EAE4F0005B897 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Alamofire.framework; sourceTree = "<group>"; };
 		D3B077A4201A70B200076879 /* AirQualityDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirQualityDataModel.swift; sourceTree = "<group>"; };
-		D3ED3C6C201D4747006E3B59 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +53,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3ED3C68201D4739006E3B59 /* Pods_Air.framework in Frameworks */,
-				D3ED3C75201D4904006E3B59 /* Alamofire.framework in Frameworks */,
+				D37E0BAB207EAE4F0005B897 /* Alamofire.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,7 +63,7 @@
 		0FA4C860D27B341EDCF1C043 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D3ED3C6C201D4747006E3B59 /* Alamofire.framework */,
+				D37E0BAA207EAE4F0005B897 /* Alamofire.framework */,
 				7AB99A08F01B86A5F60EE930 /* Pods_Air.framework */,
 			);
 			name = Frameworks;
@@ -143,7 +141,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Marcin Szabłowski";
 				TargetAttributes = {
 					D343ECB120129CFA00EF3619 = {
@@ -288,6 +286,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -295,6 +294,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -345,6 +345,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -352,6 +353,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -388,6 +390,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4RWHN3ZBQ9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Air/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcinszablowski.Air;
@@ -404,6 +410,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4RWHN3ZBQ9;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = Air/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.marcinszablowski.Air;

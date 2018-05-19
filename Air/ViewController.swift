@@ -4,23 +4,27 @@
 //
 //  Created by Marcin Szabłowski on 19.01.2018.
 //  Copyright © 2018 Marcin Szabłowski. All rights reserved.
-//
 
 import UIKit
 import CoreLocation
 import Alamofire
 import SwiftyJSON
+import SVProgressHUD
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
 
+    //MARK: Constanst and variables
     let locationManager = CLLocationManager()
     let airQualityDataModel = AirQualityDataModel()
+    
+    let distanceFromStation = CLLocationDistance()
     
     let baseURL = "https://api.waqi.info/feed/geo:"
     let tokenURL = "/?token="
     let token = "3d65980782c9bd362aa28468e7a4f36d944bff5a"
     var finalURL = ""
     
+    //MARK: Outlets
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var airQualityLabel: UILabel!
     @IBOutlet weak var airQualityIndex: UILabel!
@@ -35,6 +39,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        SVProgressHUD.show()
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         locationManager.requestWhenInUseAuthorization()
@@ -42,9 +48,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
     
-        // Networking call.
+    //MARK: Networking call
     func getAirQualityData(url : String) {
-        Alamofire.request(url, method: .get).responseJSON {
+        Alamofire.request(url, method: .get)
+            .validate()
+            .responseJSON{
             response in
             if response.result.isSuccess {
                 //Connect is succesful
@@ -60,11 +68,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             }
             else {
                 print("Error: \(response.result.error!)")
+                print(self.finalURL)
                 self.cityLabel.text = "Ouch! Can't connect!"
+                SVProgressHUD.dismiss()
             }
         }
     }
 
+    //MARK: JSON Parsing
     func updateAirQualityData(json: JSON) {
         if let AQIResult = json["data"]["aqi"].int {
             
@@ -80,15 +91,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         airQualityDataModel.airQualityInterpretationName = airQualityDataModel.airQualityInterpretation(quality: AQIResult)
             
+            
             updateUIWithAirQualityData()
             
         }
         else {
             cityLabel.text = "No Air Quality Data"
+            SVProgressHUD.dismiss()
         }
     }
     
+    //MARK: Distance to station
+    func distanceToStation() {
+        
+    }
     
+    //MARK: Update UI
     func updateUIWithAirQualityData() {
         
         cityLabel.text = airQualityDataModel.city
@@ -103,6 +121,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         airQualityLabel.text = airQualityDataModel.airQualityInterpretationName
         
+        SVProgressHUD.dismiss()
+        
     }
         
     override func didReceiveMemoryWarning() {
@@ -110,7 +130,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         // Dispose of any resources that can be recreated.
     }
 
-        // Get location data and create URL for obtaining JSON data.
+    //MARK: Update location
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations[locations.count - 1]
         if location.horizontalAccuracy > 0 {
@@ -130,7 +150,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
-        // Inform about connection with location issues.
+    // MARK: Update location error
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error)
         cityLabel.text = "Oops! No connection!"
